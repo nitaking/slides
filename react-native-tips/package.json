@@ -10,5 +10,8 @@
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*"
   },
-  "name": "react-native-tips"
+  "name": "react-native-tips",
+  "devDependencies": {
+    "playwright-chromium": "^1.20.2"
+  }
 }

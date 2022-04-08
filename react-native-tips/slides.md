@@ -105,11 +105,13 @@ React Native に詳しくない人をターゲットに、React Native のノウ
 
 React Native を使うには、JavaScript（JS）の知識が必要になります！
 
-JS のチュートリアルサイトはいくつもありますが、ここでは「現代の JavaScript チュートリアル」を紹介します！
+- JS のチュートリアルサイトはいくつもありますが、ここでは「現代の JavaScript チュートリアル」を紹介します！
 
-[現代の JavaScript チュートリアル](https://ja.javascript.info/)
+  - [現代の JavaScript チュートリアル](https://ja.javascript.info/)
 
-**[JavaScript の基礎](https://ja.javascript.info/first-steps)** までは抑えると、基本的に困ることはないはず！
+  - **[JavaScript の基礎](https://ja.javascript.info/first-steps)** までは抑えると、基本的に困ることはないはず！
+
+- あと、estaが上げてた [jsprimer](https://jsprimer.net/) もおすすめ（これが見つからなくて👆を挙げた感じある）
 
 ---
 
@@ -540,6 +542,26 @@ return <View>{label}</View>;
 
 ---
 
+# YellowBox / RedBox (LogBox)は無視しない
+
+みんな、[LogBox](https://reactnative.dev/blog/2020/07/06/version-0.63#logbox)ちゃんと消してます？（消してませんよね？）
+
+![](https://reactnative.dev/assets/images/0.63-logbox-a209851328e548bf0810bdee050fb960.png)
+
+--- 
+
+# YellowBox / RedBox (LogBox)は無視しない
+
+- LogBox
+  - `console.warn`: Yellow
+  - `console.error`: Red
+- なぜ無視したらだめ？
+  - パフォーマンス上のリスクを警告してくれている可能性がある
+  - Yellowでも無視してはいけない
+  - 過去にwarnを無視して、バグを引き起こした事がある
+    <br>e.g.`<Image>`に border を当ててしまい YellowBox が表示され、リリースビルドでクラッシュ
+
+---
 
 # その他
 
@@ -551,7 +573,7 @@ return <View>{label}</View>;
 - [【React Native】FlatListのデータが変更されてもrenderされない - Qiita](https://qiita.com/nitaking/items/6e2571033cd98838907a)
 - [【JavaScript】Self Objectの値を参照してプロパティ値設定したい - Qiita](https://qiita.com/nitaking/items/ebee3e9647695747dc8f)
 - [【React Native】Android emulatorで 'localhost' を参照しない - Qiita](https://qiita.com/nitaking/items/d84b1924054bbc6bbe76)
-- [react-native-modalboxで<ScrollView>のスクロールが効かないとき - Qiita](https://qiita.com/nitaking/items/8905e29f2eef45bc8457)
+- [react-native-modalboxで`<ScrollView>`のスクロールが効かないとき - Qiita](https://qiita.com/nitaking/items/8905e29f2eef45bc8457)
 - [【React Native】borderBottomが当たらない - Qiita](https://qiita.com/nitaking/items/0b5d78e720eea27abe4c)
 
----
+
