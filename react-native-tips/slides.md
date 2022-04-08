@@ -31,19 +31,35 @@ React Native に詳しくない人をターゲットに、React Native のノウ
 
 少しでも学ぶことがあったら幸いだよ！
 
-対象読者：1、2 回触ったことがあるひと
+- 対象読者
+  - 1、2 回触ったことがあるひと
 
-情報粒度：深く調べないとわからないこと
+- 情報粒度：
+  - 各項目は知らない事があるかも、各単位は概要レベル。
+  - 詳しく知りたいことがあればQ&Aで補いたいよ！
 
 ---
 
-# 話すこと / ゴール
+# 話すこと
+
+<div class="grid gap-8 ">
+<div>
 
 1. React Native に関するスキルインプット
-1. React Native の基礎知識
-1. ライブラリの話
-1. かゆいところに手が届く知識
-1. 「React Native 触ったことアル」から「React Native チョットデキル」に
+2. React Native の基礎知識
+3. ライブラリの話
+4. かゆいところに手が届く知識
+5. よもやま話
+
+</div>
+
+<div>
+
+👉「React Native 触ったことアル」から「React Native チョットデキル」に
+
+</div>
+</div>
+
 
 ---
 
@@ -53,7 +69,7 @@ React Native に詳しくない人をターゲットに、React Native のノウ
 - リポジトリのドメイン知識
 
 
-これらは別途、*業務上でキャッチアップしてもらう* *また別の人から教わる事ができる* ので話さないよ！
+これらは別途、「業務上でキャッチアップしてもらう」 「また別の人から教わる事ができる」 ので話さないよ！
 
 
 ---
@@ -313,6 +329,10 @@ firebase自体のドキュメントは優秀
 
 # react-navigation
 
+最もポピュラーなライブラリから、公式ドキュメントに記載されるライブラリへ
+([react-navigation](https://reactnavigation.org/), [公式Doc](https://reactnative.dev/docs/navigation))
+
+dark-modeだったり、safe-area だったりをこのライブラリ単体でも仕組みとして持っている。ややこしい。
 
 - v1
   - redux前提
@@ -343,8 +363,20 @@ firebase自体のドキュメントは優秀
 
 ---
 
+# react-native-screens
+
+https://github.com/software-mansion/react-native-screens
+
+
+元々JSオンリーだった react-navigation にネイティブライブラリが登場した。
+
+個人的に、ナビゲーションを実装する上で、
+スクリーン制御をJSのみで完結するのはパフォーマンスの限界があったのだと思う。
+
+---
+
 # patch-package
-##
+なんとなく紹介
 
 React Nativeは数々のライブラリに支えられているフレームワーク。
 
@@ -488,7 +520,6 @@ url: https://speakerdeck.com/player/311206d8233444278437abe4d127840b?slide=10
 
 ---
 
-
 ## 文字列は必ず`<Text>`を使用する
 
 - web と違って、Text で囲まないとエラーになる
@@ -502,5 +533,25 @@ return <View>{label}</View>;
 
 [react-native-tips - Snack](https://snack.expo.dev/@nitawaki/react-native-tips)
 
+👇過去経験談記事
+
+- [【React Native】Cannot Add a child that doesn't have a YogaNode to a parent with out a measure function - Qiita](https://qiita.com/nitaking/items/a59c0a65db92343d0217)
 
 
+---
+
+
+# その他
+
+- [【React Native】AndroidのTextでlineHeight当ててるのにセンターにならない - Qiita](https://qiita.com/nitaking/items/763b200620a57722e9e2)
+- [【React Native】画面が真っ白で起動しない - Qiita](https://qiita.com/nitaking/items/f37a21d6955f1521f33c)
+- [【react-navigation】カスタマイズヘッダー適用時にカックカクする問題 - Qiita](https://qiita.com/nitaking/items/b6dec113c8a95adc9aff)
+- [【React Native】TextInputでキーボードが押し上げられる【Android】 - Qiita](https://qiita.com/nitaking/items/bf13d5ce8e7ac812c0df)
+- [【React Native】Android実機デバック手順 - Qiita](https://qiita.com/nitaking/items/ec3191d3ca51980396bf)
+- [【React Native】FlatListのデータが変更されてもrenderされない - Qiita](https://qiita.com/nitaking/items/6e2571033cd98838907a)
+- [【JavaScript】Self Objectの値を参照してプロパティ値設定したい - Qiita](https://qiita.com/nitaking/items/ebee3e9647695747dc8f)
+- [【React Native】Android emulatorで 'localhost' を参照しない - Qiita](https://qiita.com/nitaking/items/d84b1924054bbc6bbe76)
+- [react-native-modalboxで<ScrollView>のスクロールが効かないとき - Qiita](https://qiita.com/nitaking/items/8905e29f2eef45bc8457)
+- [【React Native】borderBottomが当たらない - Qiita](https://qiita.com/nitaking/items/0b5d78e720eea27abe4c)
+
+---
