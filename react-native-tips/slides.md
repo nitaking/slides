@@ -515,9 +515,9 @@ url: https://speakerdeck.com/player/311206d8233444278437abe4d127840b?slide=10
 
 ## やっておくこと
 
-1. resizeMethod
+1. resizeMethod(Image Component)
    - 事前にAndroid側にresizeする情報を与えておく
-2. removeClippedSubview
+2. removeClippedSubview(FlatList Component)
    - デフォルトは画面外の component のレンダリング結果をメモリに保持しつつける
    - 開放するflagがこちら
 
