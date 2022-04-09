@@ -23,6 +23,9 @@ drawings:
 
 # React Native ことはじめ
 
+2022-04-08 社内勉強会 in airCloset
+<br>Satoshi Nitawaki
+
 ---
 
 # **これはなに？**
@@ -114,8 +117,6 @@ React Native を使うには、JavaScript（JS）の知識が必要になりま�
 - あと、estaが上げてた [jsprimer](https://jsprimer.net/) もおすすめ（これが見つからなくて👆を挙げた感じある）
 
 ---
-
-## よもやま
 
 ## 好きな構文
 
