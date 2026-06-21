@@ -1,0 +1,32 @@
+{
+  "name": "slides-archive",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "nitaking のスライドアーカイブサイト",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "agentation:mcp": "agentation-mcp server",
+    "agentation:doctor": "agentation-mcp doctor",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "agentation": "^3.0.2",
+    "gen-interface-jp": "^0.6.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-pdf": "^9.2.1",
+    "react-router-dom": "^6.30.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "agentation-mcp": "^1.2.0",
+    "gh-pages": "^6.3.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.3.5"
+  }
+}
