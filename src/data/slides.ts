@@ -16,6 +16,7 @@ export const slides: Slide[] = [
     event: '社内勉強会 in airCloset',
     date: '2022-04-08',
     pdfPath: 'slides/20220408_react-native-tips.pdf',
+    slidevUrl: 'https://react-native-tips.vercel.app',
   },
 ];
 

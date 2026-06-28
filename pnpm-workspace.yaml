@@ -5,3 +5,5 @@ allowBuilds:
   better-sqlite3: true
   canvas: true
   esbuild: true
+  playwright-chromium: true
+  vue-demi: true

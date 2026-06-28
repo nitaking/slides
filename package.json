@@ -10,7 +10,14 @@
     "preview": "vite preview",
     "agentation:mcp": "agentation-mcp server",
     "agentation:doctor": "agentation-mcp doctor",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "slidev": "bash script/deck.sh",
+    "slidev:new": "bash script/deck.sh new",
+    "slidev:dev": "bash script/deck.sh dev",
+    "slidev:build": "bash script/deck.sh build",
+    "slidev:export": "bash script/deck.sh export",
+    "slidev:deploy": "bash script/deck.sh deploy",
+    "slidev:list": "bash script/deck.sh list"
   },
   "dependencies": {
     "agentation": "^3.0.2",
@@ -18,7 +25,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-pdf": "^9.2.1",
-    "react-router-dom": "^6.30.0"
+    "react-router-dom": "^6.30.0",
+    "vercel": "^54.18.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.18",
@@ -28,5 +36,9 @@
     "gh-pages": "^6.3.0",
     "typescript": "^5.7.3",
     "vite": "^6.3.5"
+  },
+  "allowScripts": {
+    "file:../esbuild@0.25.12/node_modules/esbuild": true,
+    "file:../../esbuild@0.25.12/node_modules/esbuild": true
   }
 }
