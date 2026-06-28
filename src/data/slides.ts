@@ -6,6 +6,7 @@ export interface Slide {
   description?: string;
   thumbnail?: string;
   pdfPath: string;
+  slidevUrl?: string;
 }
 
 export const slides: Slide[] = [

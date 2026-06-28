@@ -22,6 +22,9 @@ export function TalksList() {
             </div>
             <div className={styles.talkContent}>
               <div className={styles.talkMeta}>
+                {slide.slidevUrl && (
+                  <span className={styles.interactiveBadge}>Interactive</span>
+                )}
                 {slide.event && (
                   <span className={styles.event}>{slide.event}</span>
                 )}

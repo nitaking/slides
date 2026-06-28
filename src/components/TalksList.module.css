@@ -83,6 +83,16 @@
   font-weight: 500;
 }
 
+.interactiveBadge {
+  background: var(--color-accent);
+  color: #fff;
+  padding: var(--spacing-xs) 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
 .date {
   color: var(--color-text-light);
   font-size: 0.8125rem;

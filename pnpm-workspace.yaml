@@ -1,3 +1,6 @@
+packages:
+  - 'decks/*'
+
 allowBuilds:
   better-sqlite3: true
   canvas: true

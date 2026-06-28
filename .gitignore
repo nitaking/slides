@@ -17,4 +17,7 @@ yarn-error.log*
 !.vscode/extensions.json
 .idea/
 
-.claude/temp/Oatmeal Marketing Kit
+# Slidev decks
+decks/*/node_modules/
+decks/*/dist/
+decks/*/slides-export.pdf

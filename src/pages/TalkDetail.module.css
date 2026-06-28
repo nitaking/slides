@@ -177,6 +177,26 @@
   line-height: 1.7;
 }
 
+.slidevLink {
+  display: inline-block;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-lg);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-full);
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.slidevLink:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
 .notFound {
   min-height: 100vh;
   display: flex;
