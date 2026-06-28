@@ -26,11 +26,17 @@ export function PresentationMode({
   const [isCursorVisible, setIsCursorVisible] = useState(true);
   const stageRef = useRef<HTMLDivElement>(null);
   const hideControlsTimeoutRef = useRef<number | null>(null);
+  const onPageChangeRef = useRef(onPageChange);
+  onPageChangeRef.current = onPageChange;
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+  const pageRef = useRef(page);
+  pageRef.current = page;
   const [stage, setStage] = useState({ w: 0, h: 0 });
 
   useEffect(() => {
-    onPageChange?.(page);
-  }, [onPageChange, page]);
+    onPageChangeRef.current?.(page);
+  }, [page]);
 
   const goPrev = useCallback(() => setPage((p) => Math.max(1, p - 1)), []);
   const goNext = useCallback(
@@ -112,13 +118,13 @@ export function PresentationMode({
           setPage(numPages || 1);
           break;
         case 'Escape':
-          onClose(page);
+          onCloseRef.current(pageRef.current);
           break;
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [goNext, goPrev, markInteraction, numPages, onClose, page]);
+  }, [goNext, goPrev, markInteraction, numPages]);
 
   // 左右半分クリックでページ送り
   const onStageClick = (e: React.MouseEvent) => {
@@ -191,7 +197,7 @@ export function PresentationMode({
         <button
           type="button"
           className={styles.closeButton}
-          onClick={() => onClose(page)}
+          onClick={() => onCloseRef.current(pageRef.current)}
           aria-label="閉じる"
         >
           ✕
