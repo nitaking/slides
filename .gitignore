@@ -21,3 +21,5 @@ yarn-error.log*
 decks/*/node_modules/
 decks/*/dist/
 decks/*/slides-export.pdf
+
+.claude/temp

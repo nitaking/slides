@@ -55,6 +55,12 @@ Skills are located in `.claude/skills/kiro-*/SKILL.md`
 - Keep steering current and verify alignment with `/kiro-spec-status`
 - Follow the user's instructions precisely, and within that scope act autonomously: gather the necessary context and complete the requested work end-to-end in this run, asking questions only when essential information is missing or the instructions are critically ambiguous.
 
+## Commit Message Rules
+- Use Conventional Commits for all commit messages.
+- Write commit messages in English.
+- Prefer the format `type: summary` and keep the summary concise and specific.
+- Common types include `feat`, `fix`, `refactor`, `docs`, `chore`, and `test`.
+
 ## Steering Configuration
 - Load entire `.kiro/steering/` as project memory
 - Default files: `product.md`, `tech.md`, `structure.md`
