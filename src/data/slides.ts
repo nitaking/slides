@@ -11,6 +11,14 @@ export interface Slide {
 
 export const slides: Slide[] = [
   {
+    slug: 'blitzjs-introduction',
+    title: 'Blitz.jsの紹介',
+    event: 'iCARE Dev Meetup #15',
+    date: '2020-11-18',
+    thumbnail: 'thumbnails/20201118_icare-dev-meetup-15.png',
+    pdfPath: 'slides/20201118_icare-dev-meetup-15.pdf',
+  },
+  {
     slug: 'react-native-tips',
     title: 'React Native ことはじめ',
     event: '社内勉強会 in airCloset',
