@@ -22,7 +22,7 @@ function getPageFromSearchParams(searchParams: URLSearchParams) {
 
 export function TalkDetail() {
   const { id } = useParams<{ id: string }>();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const slide = id ? findSlide(id) : undefined;
   const [page, setPage] = useState<number | undefined>(() =>
     getPageFromSearchParams(searchParams),
@@ -47,21 +47,12 @@ export function TalkDetail() {
     (update: (nextParams: URLSearchParams) => void) => {
       const nextParams = new URLSearchParams(searchParams);
       update(nextParams);
-      const nextSearch = nextParams.toString();
-      const nextPath = `/slide/${id}${nextSearch ? `?${nextSearch}` : ''}`;
-      const nextHash = `#${nextPath}`;
-
-      if (window.location.hash !== nextHash) {
-        const nextUrl = new URL(window.location.href);
-        nextUrl.hash = nextPath;
-        window.history.replaceState(window.history.state, '', nextUrl);
-      }
-
+      setSearchParams(nextParams, { replace: true });
       setPage(getPageFromSearchParams(nextParams));
       setPresentation(nextParams.get('preview') === '1');
       setDisplayPage(getPageFromSearchParams(nextParams) ?? 1);
     },
-    [id, searchParams],
+    [searchParams, setSearchParams],
   );
 
   const openPresentation = useCallback(() => {

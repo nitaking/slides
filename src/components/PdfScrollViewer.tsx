@@ -98,6 +98,10 @@ export function PdfScrollViewer({ file, page, onLoad, onPageChange }: Props) {
 
     const syncCurrentPage = () => {
       frameId = 0;
+
+      // page prop に追従するスクロール中は、監視側で現在ページを巻き戻さない。
+      if (pendingScrollPageRef.current !== null) return;
+
       const anchor = window.scrollY + PAGE_TRACK_OFFSET;
       let nextPage = currentPageRef.current;
 
