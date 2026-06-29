@@ -29,7 +29,7 @@
 
 .talks {
   flex: 1;
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-md) 0;
 }
 
 .sectionContainer {
