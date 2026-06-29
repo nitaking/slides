@@ -55,6 +55,15 @@ export const slides: Slide[] = [
     pdfPath: 'slides/20220408_react-native-tips.pdf',
     slidevUrl: 'https://react-native-tips.vercel.app',
   },
+  {
+    slug: 'lt-in-30min',
+    title: '人は30分でLT資料を作って発表できるのか',
+    event: 'エンジニアの成長を応援する忘年LT大会2023',
+    date: '2023-12-19',
+    thumbnail: 'thumbnails/20231219_bonenkai-lt-2023.png',
+    pdfPath: 'slides/20231219_bonenkai-lt-2023.pdf',
+    eventUrl: 'https://engineers.connpass.com/event/298275/',
+  },
 ];
 
 export const sortedSlides = (): Slide[] =>

@@ -17,7 +17,7 @@ export function Footer() {
             </svg>
           </a>
           <a
-            href="https://x.com/nitaking"
+            href="https://x.com/nitaking_"
             target="_blank"
             rel="noreferrer"
             className={styles.socialLink}
