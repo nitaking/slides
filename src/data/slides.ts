@@ -64,6 +64,14 @@ export const slides: Slide[] = [
     pdfPath: 'slides/20231219_bonenkai-lt-2023.pdf',
     eventUrl: 'https://engineers.connpass.com/event/298275/',
   },
+  {
+    slug: 'proxysql-tips',
+    title: 'ProxySQL Tips集',
+    event: '社内シェア',
+    date: '2025-06-29',
+    thumbnail: 'thumbnails/20250629_proxysql-tips.png',
+    pdfPath: 'slides/20250629_proxysql-tips.pdf',
+  },
 ];
 
 export const sortedSlides = (): Slide[] =>
