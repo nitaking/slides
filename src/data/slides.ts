@@ -72,6 +72,14 @@ export const slides: Slide[] = [
     thumbnail: 'thumbnails/20250629_proxysql-tips.png',
     pdfPath: 'slides/20250629_proxysql-tips.pdf',
   },
+  {
+    slug: 'design-doc-driven',
+    title: 'Design Doc Drivenを試してみて',
+    event: '社内シェア',
+    date: '2026-02-01',
+    thumbnail: 'thumbnails/20260201_design-doc-driven.png',
+    pdfPath: 'slides/20260201_design-doc-driven.pdf',
+  },
 ];
 
 export const sortedSlides = (): Slide[] =>
