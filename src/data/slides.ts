@@ -19,6 +19,14 @@ export const slides: Slide[] = [
     pdfPath: 'slides/20201118_icare-dev-meetup-15.pdf',
   },
   {
+    slug: 'build-tools-survey',
+    title: '最近のビルドツール調べてみた',
+    event: '社内LT',
+    date: '2021-06-24',
+    thumbnail: 'thumbnails/20210624_build-tools-survey.png',
+    pdfPath: 'slides/20210624_build-tools-survey.pdf',
+  },
+  {
     slug: 'react-native-tips',
     title: 'React Native ことはじめ',
     event: '社内勉強会 in airCloset',
