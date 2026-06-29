@@ -1,0 +1,97 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlayCursorHidden {
+  cursor: none;
+}
+
+.stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.stageCursorHidden {
+  cursor: none;
+}
+
+.stage :global(.react-pdf__Page) {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  background: #fff;
+}
+
+.stage :global(canvas) {
+  display: block;
+}
+
+.message {
+  color: #f5f4f2;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity var(--transition-fast);
+}
+
+.controlsHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navButton,
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.navButton:hover:not(:disabled),
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--color-accent);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.counter {
+  color: #f5f4f2;
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+  min-width: 4rem;
+  text-align: center;
+}
+
+.closeButton {
+  margin-left: var(--spacing-lg);
+}

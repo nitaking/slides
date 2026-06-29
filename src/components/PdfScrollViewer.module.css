@@ -1,0 +1,52 @@
+.viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pageWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  scroll-margin-top: 4rem;
+}
+
+.pageWrap + .pageWrap {
+  margin-top: 24px;
+}
+
+.pageWrap :global(.react-pdf__Page) {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #fff;
+}
+
+.pageWrap :global(canvas) {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.pageWrap :global(.react-pdf__Page__textContent),
+.pageWrap :global(.react-pdf__Page__annotations) {
+  display: none !important;
+}
+
+.pageSkeleton {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--color-background-light);
+  border-radius: var(--radius-sm);
+}
+
+.message {
+  padding: var(--spacing-xxl) 0;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+.loadMoreTrigger {
+  width: 100%;
+  height: 1px;
+}

@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "react-native-tips",
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.16.0",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "markdown-it-github-alerts": "^1.0.1"
+  }
+}

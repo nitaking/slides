@@ -1,0 +1,30 @@
+[tools]
+node = "lts"
+
+[tasks."slidev"]
+run = "bash script/deck.sh"
+description = "Manage Slidev decks (new/dev/build/export/deploy/list)"
+
+[tasks."slidev:new"]
+run = "bash script/deck.sh new"
+description = "Create a new Slidev deck from template"
+
+[tasks."slidev:dev"]
+run = "bash script/deck.sh dev"
+description = "Start Slidev dev server for a deck"
+
+[tasks."slidev:build"]
+run = "bash script/deck.sh build"
+description = "Build a Slidev deck for production"
+
+[tasks."slidev:export"]
+run = "bash script/deck.sh export"
+description = "Export PDF from a Slidev deck"
+
+[tasks."slidev:deploy"]
+run = "bash script/deck.sh deploy"
+description = "Deploy a Slidev deck to Vercel"
+
+[tasks."slidev:list"]
+run = "bash script/deck.sh list"
+description = "List all Slidev decks"

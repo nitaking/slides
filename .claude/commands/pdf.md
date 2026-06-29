@@ -1,0 +1,8 @@
+- $ARGUMENTS を軽量化して。original fileは残さない。mvで上書きして。
+  - Ghostscript がインストールされていなければ `brew install ghostscript` を先に実行
+  - 落とし具合は `command gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dQUIET -dBATCH -dNOPAUSE -sOutputFile=<output> <input>` ぐらい
+- $ARGUMENTS のサムネイル画像生成して。 `script/generate-thumbnails.sh $ARGUMENTS` で
+- 生成したサムネイル画像からスライドの内容を把握して、 @src/data/slides.ts にデータ追加して。
+- 生成したサムネイル画像を public/thumbnails , 軽量化したPDFを public/slides に入れて。ファイル名は YYYYMMDD_{eventName}.(pdf|png)
+- pdfPath は `slides/YYYYMMDD_{eventName}.pdf` (public/ からの相対パス) で。
+- コミットして。

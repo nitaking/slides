@@ -1,0 +1,39 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  text-align: center;
+  padding: 6rem var(--spacing-lg) var(--spacing-xxl);
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-lighter);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 var(--spacing-md);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+}
+
+.talks {
+  flex: 1;
+  padding: var(--spacing-md) 0;
+}
+
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
