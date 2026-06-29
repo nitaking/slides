@@ -1,72 +1,100 @@
 # slides
 
-nitaking（Satoshi Nitawaki）の登壇・勉強会スライドのアーカイブサイトです。
-PDF をそのまま [react-pdf](https://github.com/wojtekmaj/react-pdf) でブラウザ表示します。
+登壇・勉強会スライドのアーカイブサイト。PDF を [react-pdf](https://github.com/wojtekmaj/react-pdf) でブラウザ表示し、Slidev デッキは Vercel でインタラクティブ版を個別デプロイ。
 
-公開先: https://nitaking.github.io/slides/
+https://nitaking.github.io/slides/
 
-## 技術スタック
+## Tech Stack
 
 - Vite + React + TypeScript
-- react-router-dom（一覧 → ビューア遷移）
-- react-pdf（PDF レンダリング）
-- GitHub Pages（GitHub Actions で自動デプロイ）
+- react-pdf — PDF レンダリング（スクロールビューア + プレゼンモード）
+- react-router-dom — `HashRouter`（GitHub Pages 対応）
+- Gen Interface JP + oklch カラーパレット
+- GitHub Pages — GitHub Actions で自動デプロイ
+- Vercel — Slidev デッキの個別デプロイ
 
-## ディレクトリ構成
+## Directory Structure
 
 ```
-.
-├── public/
-│   └── pdfs/                  # 公開する PDF 資産
-│       └── 20220408_react-native-tips.pdf
-├── src/
-│   ├── data/slides.ts         # スライドのメタデータ（タイトル/日付/タグ/PDFパス）
-│   ├── components/
-│   │   └── PdfThumbnail.tsx   # 一覧のサムネイル（PDF 1ページ目を描画）
-│   ├── pages/
-│   │   ├── SlideListPage.tsx  # 一覧画面（タグ絞り込み付き）
-│   │   └── SlideViewerPage.tsx# ビューア画面（ページ送り）
-│   ├── pdf.ts                 # pdfjs worker / asset パス解決
-│   ├── App.tsx
-│   └── main.tsx
-├── react-native-tips/         # Slidev ソース（PDF の元データ）
-└── slidev/                    # Slidev スターターのソース
+src/
+├── data/slides.ts             # スライドメタデータ
+├── components/
+│   ├── PdfThumbnail.tsx       # PDF 1ページ目サムネイル
+│   ├── PdfScrollViewer.tsx    # スクロール式 PDF ビューア
+│   ├── PresentationMode.tsx   # フルスクリーン表示
+│   └── TalksList.tsx          # カード一覧
+├── pages/
+│   ├── Home.tsx               # 一覧ページ
+│   └── TalkDetail.tsx         # 詳細 / ビューアページ
+└── pdf.ts                     # pdfjs worker / asset パス解決
+
+public/slides/                 # PDF ファイル
+public/thumbnails/             # サムネイル画像
+
+decks/                         # Slidev デッキ（pnpm workspace）
+├── react-native-tips/         # → react-native-tips.vercel.app
+└── slidev-starter/            # 新規デッキ用テンプレート
 ```
 
-## 開発
+## Development
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173/slides/
-npm run build    # 型チェック + 本番ビルド (dist/)
-npm run preview  # ビルド成果物をローカル確認
+npm run dev        # http://localhost:5173/slides/
+npm run build      # 型チェック + 本番ビルド
+npm run preview    # ビルド成果物をローカル確認
 ```
 
-## スライドの追加方法
+## Adding a Slide
 
-1. Slidev 等で作成した PDF を `public/pdfs/` に置く
-   （命名規則: `YYYYMMDD_<slug>.pdf`）
-2. `src/data/slides.ts` の `slides` 配列の **先頭** にメタデータを追記する
+### PDF のみ
+
+1. PDF を `public/slides/` に配置（命名: `YYYYMMDD_<slug>.pdf`）
+2. `src/data/slides.ts` の `slides` 配列先頭に追加:
 
 ```ts
 {
-  id: 'my-talk',                 // URL に使うスラッグ（一意）
+  slug: 'my-talk',
   title: 'タイトル',
-  date: '2026-06-25',            // YYYY-MM-DD
-  event: 'イベント名',           // 任意
-  tags: ['React', '勉強会'],
-  pdf: 'pdfs/20260625_my-talk.pdf',
-  // thumbnail: 'thumbnails/xxx.png', // 任意。未指定なら PDF 1ページ目を表示
-  // links: [{ label: 'イベントページ', url: 'https://...' }],
+  event: 'イベント名',
+  date: '2026-06-29',
+  pdfPath: 'slides/20260629_my-talk.pdf',
+  // thumbnail: 'thumbnails/20260629_my-talk.png',
 }
 ```
 
-3. `main` ブランチに push すると GitHub Actions が自動でビルド & デプロイします
-   （`Settings > Pages > Source` を **GitHub Actions** に設定しておくこと）。
-   手動デプロイする場合は `npm run deploy`（gh-pages）も利用できます。
+3. `main` に push → GitHub Actions が自動デプロイ
 
-## スライド作成時に参考になるもの
+### Slidev デッキ付き
 
-- https://github.com/loftkun/slidev-example
-  - https://qiita.com/loftkun/items/2fbeddc9449eb5d85dfd
-  - https://loftkun-slidev-example.netlify.app/
+1. `script/deck.sh new my-talk` でテンプレートから作成
+2. `decks/my-talk/slides.md` を編集
+3. Vercel でプロジェクトを作成（Root Directory: `decks/my-talk`）
+4. `slides.ts` に `slidevUrl` を追加:
+
+```ts
+{
+  slug: 'my-talk',
+  // ...
+  slidevUrl: 'https://my-talk.vercel.app',
+}
+```
+
+## Deck Management
+
+```bash
+script/deck.sh list                    # デッキ一覧
+script/deck.sh new <name>             # テンプレートから作成
+script/deck.sh dev <name>             # Slidev 開発サーバー
+script/deck.sh build <name>           # 本番ビルド
+script/deck.sh export <name>          # PDF エクスポート → public/slides/
+script/deck.sh deploy <name>          # Vercel デプロイ
+
+# mise でも利用可能
+mise run slidev:dev react-native-tips
+```
+
+## Deploy
+
+- **アーカイブサイト**: `Settings > Pages > Source` を GitHub Actions に設定。`main` push で自動デプロイ
+- **Slidev デッキ**: Vercel で各デッキを個別プロジェクトとしてデプロイ（Root Directory を `decks/<name>` に指定）
