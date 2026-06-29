@@ -126,7 +126,7 @@ export function TalkDetail() {
               </svg>
             </a>
           )}
-          <
+          <a
             href={fileUrl}
             download
             className={styles.iconButton}

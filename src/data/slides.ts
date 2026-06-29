@@ -18,6 +18,7 @@ export const slides: Slide[] = [
     date: '2019-07-03',
     thumbnail: 'thumbnails/20190703_react-lt.png',
     pdfPath: 'slides/20190703_react-lt.pdf',
+    eventUrl: 'https://informetis.connpass.com/event/133541/',
   },
   {
     slug: 'expo-web-nextjs',
@@ -35,6 +36,7 @@ export const slides: Slide[] = [
     date: '2020-11-18',
     thumbnail: 'thumbnails/20201118_icare-dev-meetup-15.png',
     pdfPath: 'slides/20201118_icare-dev-meetup-15.pdf',
+    eventUrl: 'https://icare.connpass.com/event/192817/',
   },
   {
     slug: 'build-tools-survey',
