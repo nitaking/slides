@@ -80,6 +80,14 @@ export const slides: Slide[] = [
     thumbnail: 'thumbnails/20260201_design-doc-driven.png',
     pdfPath: 'slides/20260201_design-doc-driven.pdf',
   },
+  {
+    slug: 'kaizen-visualize-pr',
+    title: 'KAIZEN - visualize PR',
+    event: '社内シェア',
+    date: '2025-08-29',
+    thumbnail: 'thumbnails/20250829_kaizen-visualize-pr.png',
+    pdfPath: 'slides/20250829_kaizen-visualize-pr.pdf',
+  },
 ];
 
 export const sortedSlides = (): Slide[] =>
