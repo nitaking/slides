@@ -19,6 +19,14 @@ export const slides: Slide[] = [
     pdfPath: 'slides/20190703_react-lt.pdf',
   },
   {
+    slug: 'expo-web-nextjs',
+    title: 'Expo WEB × Next.js は実用できるのか？',
+    event: 'LT',
+    date: '2020-08-05',
+    thumbnail: 'thumbnails/20200805_expo-web-nextjs.png',
+    pdfPath: 'slides/20200805_expo-web-nextjs.pdf',
+  },
+  {
     slug: 'blitzjs-introduction',
     title: 'Blitz.jsの紹介',
     event: 'iCARE Dev Meetup #15',
