@@ -126,7 +126,7 @@ export function TalkDetail() {
               </svg>
             </a>
           )}
-          <a
+          <
             href={fileUrl}
             download
             className={styles.iconButton}
@@ -154,7 +154,20 @@ export function TalkDetail() {
       <main className={styles.main}>
         <header className={styles.head}>
           <div className={styles.meta}>
-            {slide.event && <span className={styles.event}>{slide.event}</span>}
+            {slide.event && (
+              slide.eventUrl ? (
+                <a
+                  href={slide.eventUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.event}
+                >
+                  {slide.event}
+                </a>
+              ) : (
+                <span className={styles.event}>{slide.event}</span>
+              )
+            )}
             <span className={styles.date}>{formatDate(slide.date)}</span>
           </div>
           <h1 className={styles.title}>

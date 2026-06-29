@@ -7,6 +7,7 @@ export interface Slide {
   thumbnail?: string;
   pdfPath: string;
   slidevUrl?: string;
+  eventUrl?: string;
 }
 
 export const slides: Slide[] = [
@@ -21,10 +22,11 @@ export const slides: Slide[] = [
   {
     slug: 'expo-web-nextjs',
     title: 'Expo WEB × Next.js は実用できるのか？',
-    event: 'LT',
+    event: 'React Native Meetup #10',
     date: '2020-08-05',
     thumbnail: 'thumbnails/20200805_expo-web-nextjs.png',
     pdfPath: 'slides/20200805_expo-web-nextjs.pdf',
+    eventUrl: 'https://react-native-meetup.connpass.com/event/173190/',
   },
   {
     slug: 'blitzjs-introduction',
