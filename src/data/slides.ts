@@ -88,6 +88,14 @@ export const slides: Slide[] = [
     thumbnail: 'thumbnails/20250829_kaizen-visualize-pr.png',
     pdfPath: 'slides/20250829_kaizen-visualize-pr.pdf',
   },
+  {
+    slug: 'eslint-migration',
+    title: '段階的に新アーキテクチャ移行できるeslint設定を追加',
+    event: '社内シェア',
+    date: '2025-06-29',
+    thumbnail: 'thumbnails/20250629_eslint-migration.png',
+    pdfPath: 'slides/20250629_eslint-migration.pdf',
+  },
 ];
 
 export const sortedSlides = (): Slide[] =>
