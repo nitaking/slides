@@ -27,6 +27,51 @@ export function Footer() {
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
           </a>
+          <a
+            href="https://nitaking.micro.blog/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.socialLink}
+            aria-label="micro blog"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7A2.5 2.5 0 0 1 17.5 16H9l-5 4v-13.5Z" />
+            </svg>
+          </a>
+          <a
+            href="https://wiki.nitaking.dev/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.socialLink}
+            aria-label="wiki"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M8 4.5h8A2.5 2.5 0 0 1 18.5 7v10A2.5 2.5 0 0 1 16 19.5H8A2.5 2.5 0 0 1 5.5 17V7A2.5 2.5 0 0 1 8 4.5Z" />
+              <path d="M9 8.5h6" />
+              <path d="M9 11.5h6" />
+              <path d="M9 14.5h4" />
+            </svg>
+          </a>
         </div>
         <p className={styles.text}>
           © {new Date().getFullYear()} Satoshi Nitawaki
