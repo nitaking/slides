@@ -11,6 +11,14 @@ export interface Slide {
 
 export const slides: Slide[] = [
   {
+    slug: 'shaking-interaction',
+    title: 'あの震えるインタラクションを実装したい',
+    event: 'React LT会',
+    date: '2019-07-03',
+    thumbnail: 'thumbnails/20190703_react-lt.png',
+    pdfPath: 'slides/20190703_react-lt.pdf',
+  },
+  {
     slug: 'blitzjs-introduction',
     title: 'Blitz.jsの紹介',
     event: 'iCARE Dev Meetup #15',
