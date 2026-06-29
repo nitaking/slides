@@ -20,6 +20,29 @@
   cursor: pointer;
 }
 
+.pageStack {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.pageLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 20ms ease;
+}
+
+.pageLayerActive {
+  opacity: 1;
+}
+
+.pageLayerHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .stageCursorHidden {
   cursor: none;
 }

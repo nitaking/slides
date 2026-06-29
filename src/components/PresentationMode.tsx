@@ -22,6 +22,11 @@ export function PresentationMode({
 }: Props) {
   const [numPages, setNumPages] = useState(0);
   const [page, setPage] = useState(initialPage);
+  const [pageSlots, setPageSlots] = useState<{ a: number; b: number | null }>({
+    a: initialPage,
+    b: null,
+  });
+  const [activeSlot, setActiveSlot] = useState<'a' | 'b'>('a');
   const [aspect, setAspect] = useState(16 / 9);
   const [isCursorVisible, setIsCursorVisible] = useState(true);
   const stageRef = useRef<HTMLDivElement>(null);
@@ -33,6 +38,17 @@ export function PresentationMode({
   const pageRef = useRef(page);
   pageRef.current = page;
   const [stage, setStage] = useState({ w: 0, h: 0 });
+  const activePage = activeSlot === 'a' ? pageSlots.a : (pageSlots.b ?? pageSlots.a);
+  const inactiveSlot = activeSlot === 'a' ? 'b' : 'a';
+
+  useEffect(() => {
+    if (page === activePage) return;
+
+    setPageSlots((current) => {
+      if (current[inactiveSlot] === page) return current;
+      return { ...current, [inactiveSlot]: page };
+    });
+  }, [activePage, inactiveSlot, page]);
 
   useEffect(() => {
     onPageChangeRef.current?.(page);
@@ -139,6 +155,37 @@ export function PresentationMode({
   const availH = Math.max(0, stage.h - pad);
   const pageWidth = Math.min(availW, availH * aspect) || availW;
 
+  const handleSlotRenderSuccess = useCallback(
+    (slot: 'a' | 'b', renderedPage: number) => {
+      if (renderedPage !== pageRef.current) return;
+      setActiveSlot(slot);
+    },
+    [],
+  );
+
+  const renderPageSlot = (slot: 'a' | 'b', pageNumber: number | null) => {
+    if (!pageNumber || pageWidth <= 0) return null;
+
+    const isActive = slot === activeSlot;
+
+    return (
+      <div
+        className={`${styles.pageLayer} ${isActive ? styles.pageLayerActive : styles.pageLayerHidden}`}
+        aria-hidden={!isActive}
+      >
+        <Page
+          key={`${slot}-${pageNumber}`}
+          pageNumber={pageNumber}
+          width={pageWidth}
+          onLoadSuccess={(loadedPage) => setAspect(loadedPage.width / loadedPage.height)}
+          onRenderSuccess={() => handleSlotRenderSuccess(slot, pageNumber)}
+          renderTextLayer={false}
+          renderAnnotationLayer={false}
+        />
+      </div>
+    );
+  };
+
   return (
     <div
       className={`${styles.overlay} ${!isCursorVisible ? styles.overlayCursorHidden : ''}`}
@@ -158,13 +205,13 @@ export function PresentationMode({
           error={<div className={styles.message}>PDF を読み込めませんでした。</div>}
         >
           {pageWidth > 0 && (
-            <Page
-              pageNumber={page}
-              width={pageWidth}
-              onLoadSuccess={(p) => setAspect(p.width / p.height)}
-              renderTextLayer={false}
-              renderAnnotationLayer={false}
-            />
+            <div
+              className={styles.pageStack}
+              style={{ width: `${pageWidth}px`, height: `${pageWidth / aspect}px` }}
+            >
+              {renderPageSlot('a', pageSlots.a)}
+              {renderPageSlot('b', pageSlots.b)}
+            </div>
           )}
         </Document>
       </div>
