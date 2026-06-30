@@ -170,6 +170,7 @@ export function PdfScrollViewer({ file, page, onLoad, onPageChange }: Props) {
         file={file}
         options={pdfOptions}
         onLoadSuccess={handleLoad}
+        externalLinkTarget="_blank"
         loading={<div className={styles.message}>読み込み中…</div>}
         error={<div className={styles.message}>PDF を読み込めませんでした。</div>}
       >
@@ -188,7 +189,6 @@ export function PdfScrollViewer({ file, page, onLoad, onPageChange }: Props) {
               width={width}
               loading={<div className={styles.pageSkeleton} />}
               onRenderSuccess={() => handlePageRender(i + 1)}
-              externalLinkTarget="_blank"
             />
           </div>
         ))}
