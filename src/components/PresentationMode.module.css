@@ -56,6 +56,17 @@
   display: block;
 }
 
+.stage :global(.react-pdf__Page__annotations) {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.stage :global(.react-pdf__Page__annotations) a {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
 .message {
   color: #f5f4f2;
 }

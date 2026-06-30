@@ -188,6 +188,7 @@ export function PdfScrollViewer({ file, page, onLoad, onPageChange }: Props) {
               width={width}
               loading={<div className={styles.pageSkeleton} />}
               onRenderSuccess={() => handlePageRender(i + 1)}
+              externalLinkTarget="_blank"
             />
           </div>
         ))}

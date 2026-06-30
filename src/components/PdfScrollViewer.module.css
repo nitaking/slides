@@ -28,9 +28,19 @@
   display: block;
 }
 
-.pageWrap :global(.react-pdf__Page__textContent),
-.pageWrap :global(.react-pdf__Page__annotations) {
+.pageWrap :global(.react-pdf__Page__textContent) {
   display: none !important;
+}
+
+.pageWrap :global(.react-pdf__Page__annotations) {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.pageWrap :global(.react-pdf__Page__annotations) a {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .pageSkeleton {

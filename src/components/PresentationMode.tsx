@@ -142,8 +142,10 @@ export function PresentationMode({
     return () => window.removeEventListener('keydown', onKey);
   }, [goNext, goPrev, markInteraction, numPages]);
 
-  // 左右半分クリックでページ送り
+  // 左右半分クリックでページ送り（リンククリック時は除外）
   const onStageClick = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (target.closest('.react-pdf__Page__annotations a')) return;
     const rect = e.currentTarget.getBoundingClientRect();
     if (e.clientX - rect.left < rect.width / 2) goPrev();
     else goNext();
@@ -180,7 +182,8 @@ export function PresentationMode({
           onLoadSuccess={(loadedPage) => setAspect(loadedPage.width / loadedPage.height)}
           onRenderSuccess={() => handleSlotRenderSuccess(slot, pageNumber)}
           renderTextLayer={false}
-          renderAnnotationLayer={false}
+          renderAnnotationLayer={true}
+          externalLinkTarget="_blank"
         />
       </div>
     );
