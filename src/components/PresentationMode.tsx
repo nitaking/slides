@@ -183,7 +183,6 @@ export function PresentationMode({
           onRenderSuccess={() => handleSlotRenderSuccess(slot, pageNumber)}
           renderTextLayer={false}
           renderAnnotationLayer={true}
-          externalLinkTarget="_blank"
         />
       </div>
     );
@@ -206,6 +205,7 @@ export function PresentationMode({
           onLoadSuccess={({ numPages: n }) => setNumPages(n)}
           loading={<div className={styles.message}>読み込み中…</div>}
           error={<div className={styles.message}>PDF を読み込めませんでした。</div>}
+          externalLinkTarget="_blank"
         >
           {pageWidth > 0 && (
             <div
